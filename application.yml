@@ -14,7 +14,22 @@ jhipster:
         authentication:
             jwt:
                 secret: crong
+#---
+spring:
+  profiles: peer1                                 # 指定profile=peer1
+server:
+  port: 8761
 eureka:
-    client:
-        service-url:
-            defaultZone: http://admin:${jhipster.registry.password}@192.168.1.50:8762/eureka/
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.1.50:8762/eureka/      # 将自己注册到peer2这个Eureka上面去
+
+#---
+spring:
+  profiles: peer2
+server:
+  port: 8762
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.1.50:8761/eureka/
