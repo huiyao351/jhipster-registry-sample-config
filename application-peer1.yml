@@ -26,7 +26,8 @@ server:
 
 eureka:
     instance:
-        hostname: eureka-peer-1
+        prefer-ip-address = true
+        ip-address = 192.168.0.4
     server:
         # see discussion about enable-self-preservation:
         # https://github.com/jhipster/generator-jhipster/issues/3654
